@@ -11,10 +11,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: CourseListScreen(),
+     home: CourseListScreen(),
+    //  home: TestScreen(),
     );
   }
 }
+
+
+
+
 
 class CourseListScreen extends StatefulWidget {
   const CourseListScreen({super.key});
@@ -70,7 +75,9 @@ class _CourseListScreenState extends State<CourseListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Science Courses')),
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        title: const Text('Science Courses')),
       body: Column(
         children: <Widget>[
           Padding(
@@ -79,6 +86,7 @@ class _CourseListScreenState extends State<CourseListScreen> {
               controller: _controller,
               decoration: InputDecoration(
                 labelText: 'Course Name',
+             
                 suffixIcon: IconButton(
                   icon: Icon(Icons.add),
                   onPressed: () {

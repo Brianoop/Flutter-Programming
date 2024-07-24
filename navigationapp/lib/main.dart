@@ -8,7 +8,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: FirstScreen(),
+      //home: FirstScreen(),
+      initialRoute: '/',
+      routes: {
+        '/':(context) => FirstScreen(), 
+        '/second': (context) => SecondScreen(), 
+        '/third': (context) => ThirdScreen()
+      },
     );
   }
 }
@@ -118,18 +124,27 @@ class FirstScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ElevatedButton(
-              onPressed: () => _showAlertDialog(context),
-              child: Text('Show Alert and Navigate (Push)'),
-            ),
-            ElevatedButton(
-              onPressed: () => _showReplaceDialog(context),
-              child: Text('Show Alert and Navigate (Replace)'),
-            ),
-            ElevatedButton(
-              onPressed: () => _showPopResultDialog(context),
-              child: Text('Show Alert and Navigate with Result'),
-            ),
+              GestureDetector(onTap: (){
+                  Navigator.pushNamed(context, '/second');
+              }, child: Text('Go to 2nd screen'),), 
+
+
+              
+                GestureDetector(onTap: (){
+                  Navigator.pushNamed(context, '/third');
+              }, child: Text('Go to 3rd screen'),)
+            // ElevatedButton(
+            //   onPressed: () => _showAlertDialog(context),
+            //   child: Text('Show Alert and Navigate (Push)'),
+            // ),
+            // ElevatedButton(
+            //   onPressed: () => _showReplaceDialog(context),
+            //   child: Text('Show Alert and Navigate (Replace)'),
+            // ),
+            // ElevatedButton(
+            //   onPressed: () => _showPopResultDialog(context),
+            //   child: Text('Show Alert and Navigate with Result'),
+            // ),
           ],
         ),
       ),
